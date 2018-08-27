@@ -11,7 +11,7 @@ const testConn = ()=>{
 }
 
 
-const create = (burrito, serve = null) => {
+const insertOne = (burrito, serve = null) => {
     db.query('insert into burrito (text, eaten) values(?, false)', burrito, function (err, res) {
         //
         if(!err){
@@ -26,7 +26,7 @@ const create = (burrito, serve = null) => {
     });
 }
 
-const consume = (serve=null) => {
+const updateOne = (serve=null) => {
     db.query('update burrito SET eaten=true where id=?', id, function (err, res) {
        if(err){
         db.end();
@@ -38,7 +38,7 @@ const consume = (serve=null) => {
     
 }
 
-const getAll = (serve = null) => {
+const selectAll = (serve = null) => {
     db.query('SELECT * FROM BURRITO', function (err, res) {
         //
         if(!err){
@@ -53,4 +53,3 @@ const getAll = (serve = null) => {
     });
 }
 
-getAll();
