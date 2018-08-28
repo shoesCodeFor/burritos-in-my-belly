@@ -30,7 +30,7 @@ const insertOne = (burrito, serve = null) => {
 }
 
 const selectAll = (serve = null) => {
-    db.query('SELECT * FROM `BURRITO`', function (err, res) {
+    db.query('SELECT * FROM `burrito`', function (err, res) {
         //
         if(!err){
             console.log(res);
