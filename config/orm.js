@@ -16,12 +16,12 @@ const testConn = ()=>{
 }
 
 
-const insertOne = (burrito, serve = null) => {
+const insertOne = (burrito, serve) => {
     db.query('insert into burrito (text, eaten) values(?, false)', burrito, function (err, res) {
         //
         if(!err){
             console.log(res);
-            return (serve? selectAll(res):true);
+            return (serve? selectAll(serve):true);
         }
         else{
             console.log(err);
@@ -29,12 +29,12 @@ const insertOne = (burrito, serve = null) => {
     });
 }
 
-const selectAll = (serve = null) => {
+const selectAll = (serve) => {
     db.query('SELECT * FROM `burrito`', function (err, res) {
         //
         if(!err){
             console.log(res);
-            return (serve? serve.json(res):true);
+            return serve.json(res);
         }
         else{
             console.log(err);
