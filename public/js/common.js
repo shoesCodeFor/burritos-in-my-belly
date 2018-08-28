@@ -18,7 +18,7 @@ function updateBurrito(id){
     $.ajax({
         type: "PUT",
         url: "/api/update",
-        data: {id: id},
+        data: {"id": id},
         success: listBurritos,
         dataType: JSON
       });
