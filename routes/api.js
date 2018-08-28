@@ -1,17 +1,25 @@
 var express = require('express');
+var burrito = require('../models/burrito');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/uneaten', function(req, res, next) {
-    res.send('All the burritos');
+router.get('/burritos', (req, res, next) => {
+    burrito.getBurritos(res);
 });
 
-router.get('/eaten', function(req, res, next) {
-    res.send('All the burritos');
+router.post('/add', (req, res, next) => {
+    let aBurrito = req.body.text;
+    burrito.addBurrito(aBurrito, res);
 });
 
-router.post('/add', function(req, res, next) {
-    let burrito = req.body;
+router.put('/update', (req, res, next) => {
+    let id = req.body.id;
+    burrito.eatBurrito(id, res);
+});
+
+router.delete('/', (req, res, next) =>{
+    let id = req.body.id;
+    burrito.deleteBurrito(id, res);
 });
 
 module.exports = router;
