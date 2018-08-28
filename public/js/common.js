@@ -9,7 +9,7 @@ $("#submit").on('click', function (e){
     e.preventDefault();
     let text = $('#burrito').val().trim();
     $('#burrito').text("");
-    $.post("/api/add", {text:text}, function (data){
+    $.post("/api/add", {"text":text}, function (data){
         console.log(data);
         listBurritos(data);
     }).then(function(){
