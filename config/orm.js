@@ -10,7 +10,6 @@ const testConn = ()=>{
             console.log(res);
         }
         
-        db.end();
         return (err ? false: true); 
         
     });
@@ -27,8 +26,6 @@ const insertOne = (burrito, serve = null) => {
         else{
             console.log(err);
         }
-        
-        db.end();
     });
 }
 
@@ -43,14 +40,13 @@ const selectAll = (serve = null) => {
             console.log(err);
         }
         
-        db.end();
     });
 }
 
 const updateOne = (id, serve=null) => {
     db.query('update burrito SET eaten=true where id=?', id, function (err, res) {
        if(err){
-        db.end();
+           console.log(err);
        } 
        else{
         console.log(`Updating burrito ${id}......`);   
@@ -62,7 +58,6 @@ const deleteOne = (id, serve=null) => {
     db.query('delete from burrito where id=?', id, function (err, res) {
        if(err){
         console.log(err)   
-        db.end();
        } 
        else{
         console.log(`Deleting burrito ${id}......`);   
