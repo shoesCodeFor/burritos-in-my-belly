@@ -23,7 +23,7 @@ function updateBurrito(id){
         url: "/api/update",
         data: {"id": id},
         success: listBurritos,
-        dataType: JSON
+        dataType: 'json'
       });
 }
 
