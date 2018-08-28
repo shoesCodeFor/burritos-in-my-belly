@@ -70,10 +70,10 @@ const deleteOne = (id, serve=null) => {
        }
     }); 
 }
-testConn();
-// module.exports = {
-//     insertOne: insertOne,
-//     selectAll: selectAll,
-//     updateOne: updateOne,
-//     deleteOne: deleteOne
-// }
+
+module.exports = {
+    insertOne: insertOne,
+    selectAll: selectAll,
+    updateOne: updateOne,
+    deleteOne: deleteOne
+}
