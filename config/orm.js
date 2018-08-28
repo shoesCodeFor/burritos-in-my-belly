@@ -30,7 +30,7 @@ const insertOne = (burrito, serve = null) => {
 }
 
 const selectAll = (serve = null) => {
-    db.query('SELECT * FROM BURRITO', function (err, res) {
+    db.query('SELECT * FROM `BURRITO`', function (err, res) {
         //
         if(!err){
             console.log(res);
@@ -44,7 +44,7 @@ const selectAll = (serve = null) => {
 }
 
 const updateOne = (id, serve=null) => {
-    db.query('update burrito SET eaten=true where id=?', id, function (err, res) {
+    db.query('update `burrito` SET eaten=true where id=?', id, function (err, res) {
        if(err){
            console.log(err);
        } 
